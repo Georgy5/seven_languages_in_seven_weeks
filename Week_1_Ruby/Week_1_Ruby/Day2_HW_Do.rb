@@ -86,10 +86,10 @@ numbers.each_slice(4) { |quad| puts quad }
 # having any occurances of a phrase in that line.
 # You will need to do a simple regular expression match and 
 # read lines from a file.
-def occurGrep(pattern, filename)
+def rbgrep(pattern, filename)
 	regexp = Regexp.new(pattern)
 	File.foreach(filename).with_index { |line, line_num| 
 		puts "#{line_num}: #{line}" if regexp =~ line }
 end
 
-occurGrep("guitar", "wikipedia_page.txt")
+rbgrep("guitar", "wikipedia_page.txt")
