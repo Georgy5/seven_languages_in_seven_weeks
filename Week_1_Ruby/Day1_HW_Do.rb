@@ -1,7 +1,10 @@
 # Seven Languages in Seven Weeks, Week 1, Day 1
 
 # A method that substitutes part of a string
-puts "tial".gsub "t", "elzek"
+def substituteT(original, substitute)
+	puts original.gsub "t", substitute
+end
+substituteT("tial", "ezek")
 
 
 # Print the string "Hello world"
