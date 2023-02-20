@@ -32,16 +32,24 @@ sum2Darray(list(
 
 # Add a slot called myAverage to a list that computes the average of all the numbers in that list.
 # What happens if there are no numbers on that list?
-
+# Bonus: raise an Io exception if any item on the list is not a number# Bonus: raise an Io exception if any item on the list is not a number
 List myAverage := method(
   if(self size == 0, 0, 
-    sum := self reduce(sum, next, sum + next), 0)
+    sum := self reduce(sum, next,
+      if(next isKindOf(Number) == false, 
+        Exception raise("myAverage only responds to numbers!"), 
+        sum + next), 
+      0)
     sum / (self size)
   )
+)
 # avg = 2
 list(1, 2, 3) myAverage println
 # avg = 3.6
 list(4, 5, 2, 4, 3) myAverage println
 # What happens if there are no numbers on that list:
 # - Io Exception: Object does not respond to '''
-list('r') myAverage println
+
+# Bonus: raise custom Io exception
+e := try(list(1, 2, "3") myAverage)
+e catch(Exception, e println)
