@@ -28,3 +28,16 @@ sum2Darray(list(
   list(4, 5, 6),
   list(7, 8, 9)
 ))myFlatten println
+
+
+# Add a slot called myAverage to a list that computes the average of all the numbers in that list.
+
+List myAverage := method(
+  if(self size == 0, 0, 
+    sum := self reduce(sum, next, sum + next), 0)
+    sum / (self size)
+  )
+# avg = 2
+list(1, 2, 3) myAverage println
+# avg = 3.6
+list(4, 5, 2, 4, 3) myAverage println
