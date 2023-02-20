@@ -31,6 +31,7 @@ sum2Darray(list(
 
 
 # Add a slot called myAverage to a list that computes the average of all the numbers in that list.
+# What happens if there are no numbers on that list?
 
 List myAverage := method(
   if(self size == 0, 0, 
@@ -41,3 +42,6 @@ List myAverage := method(
 list(1, 2, 3) myAverage println
 # avg = 3.6
 list(4, 5, 2, 4, 3) myAverage println
+# What happens if there are no numbers on that list:
+# - Io Exception: Object does not respond to '''
+list('r') myAverage println
